@@ -1,0 +1,27 @@
+
+
+.calculator-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  gap: 10px;
+}
+
+.calculator-item{
+  display: flex;
+  width: calc(25% - 10px);
+  box-sizing: border-box;
+  height: 50px;
+  background-color: #ddd;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc-zero {
+  width: calc(50% - 10px)
+}
+
+.calc-display{
+  width: calc(75% - 10px);
+  font-weight: bold;
+}
