@@ -2,16 +2,22 @@ import { useState } from "react";
 
 function Calculator() {
   //display value
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState("");
 
   const inputDigit = function (e) {
-    console.log(e.target.innerText);
+    setDisplayValue(displayValue + e.target.innerText);
+  };
+
+  const inputDecimal = () => {
+    if (displayValue.indexOf(",") === -1) setDisplayValue(displayValue + ",");
   };
 
   return (
     <div className="calculator-container">
-      <div className="calculator-item calc-display"></div>
-      <div className="calculator-item">clear</div>
+      <div className="calculator-item calc-display">{displayValue}</div>
+      <div className="calculator-item" onClick={() => setDisplayValue("")}>
+        clear
+      </div>
       <div className="calculator-item" onClick={inputDigit}>
         7
       </div>
@@ -42,8 +48,12 @@ function Calculator() {
         3
       </div>
       <div className="calculator-item">x</div>
-      <div className="calculator-item">,</div>
-      <div className="calculator-item">0</div>
+      <div className="calculator-item" onClick={inputDecimal}>
+        ,
+      </div>
+      <div className="calculator-item" onClick={inputDigit}>
+        0
+      </div>
       <div className="calculator-item">=</div>
       <div className="calculator-item">+</div>
     </div>
